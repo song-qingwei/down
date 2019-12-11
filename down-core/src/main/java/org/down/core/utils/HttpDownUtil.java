@@ -2,6 +2,7 @@ package org.down.core.utils;
 
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
+import io.netty.util.ReferenceCountUtil;
 import org.down.core.boot.HttpDownBootstrap;
 import org.down.core.entity.HttpHeadersInfo;
 import org.down.core.entity.HttpRequestInfo;
@@ -133,11 +134,15 @@ public class HttpDownUtil {
                         pipeline.addLast(new ChannelInboundHandlerAdapter() {
                             @Override
                             public void channelRead(ChannelHandlerContext ctx, Object msg) {
-                                if (msg instanceof HttpResponse) {
-                                    HttpResponse httpResponse = (HttpResponse) msg;
-                                    responses[0] = httpResponse;
-                                    ctx.channel().close();
-                                    latch.countDown();
+                                try {
+                                    if (msg instanceof HttpResponse) {
+                                        HttpResponse httpResponse = (HttpResponse) msg;
+                                        responses[0] = httpResponse;
+                                        ctx.channel().close();
+                                        latch.countDown();
+                                    }
+                                } finally {
+                                    ReferenceCountUtil.release(msg);
                                 }
                             }
                         });

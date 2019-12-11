@@ -506,7 +506,6 @@ public class HttpDownBootstrap implements Serializable {
                                     size = (int) (connectInfo.getTotalSize() - connectInfo.getDownSize());
                                 }
                                 fileChannel.write(byteBuf.nioBuffer());
-                                ReferenceCountUtil.release(byteBuf);
                                 // 更新下载进度
                                 synchronized (ChunkInfo.class) {
                                     chunkInfo.setDownSize(chunkInfo.getDownSize() + size);
