@@ -237,12 +237,12 @@
         <repository>
             <id>ad-release</id>
             <name>Release Repository of ad</name>
-            <url>http://maven.360adtrade.com:8001/repository/ad-release/</url>
+            <url>http://maven.360adtrade.com:8001/nexus/repository/ad-release/</url>
         </repository>
         <snapshotRepository>
             <id>ad-snapshot</id>
             <name>Snapshot Repository of ad</name>
-            <url>http://maven.360adtrade.com:8001/repository/ad-snapshot/</url>
+            <url>http://maven.360adtrade.com:8001/nexus/repository/ad-snapshot/</url>
         </snapshotRepository>
     </distributionManagement>
     <!-- 从Maven拉取依赖库 -->
@@ -250,7 +250,7 @@
         <repository>
             <id>ad-snapshot</id>
             <name>Snapshot Repository</name>
-            <url>http://maven.360adtrade.com:8001/repository/ad-snapshot/</url>
+            <url>http://maven.360adtrade.com:8001/nexus/repository/ad-snapshot/</url>
             <snapshots>
                 <enabled>true</enabled>
                 <updatePolicy>always</updatePolicy>
@@ -263,7 +263,7 @@
         <repository>
             <id>ad-release</id>
             <name>Release Repository</name>
-            <url>http://maven.360adtrade.com:8001/repository/ad-release/</url>
+            <url>http://maven.360adtrade.com:8001/nexus/repository/ad-release/</url>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
@@ -278,12 +278,12 @@
         <pluginRepository>
             <id>ad-release</id>
             <name>Release Repository</name>
-            <url>http://maven.360adtrade.com:8001/repository/ad-release/</url>
+            <url>http://maven.360adtrade.com:8001/nexus/repository/ad-release/</url>
         </pluginRepository>
         <pluginRepository>
             <id>ad-snapshot</id>
             <name>Snapshot Repository</name>
-            <url>http://maven.360adtrade.com:8001/repository/ad-snapshot/</url>
+            <url>http://maven.360adtrade.com:8001/nexus/repository/ad-snapshot/</url>
         </pluginRepository>
     </pluginRepositories>
 </project>
